@@ -44,8 +44,9 @@ void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
 	if(counter > 0){counter--;}
 	else{
-		update7SEG(index);
-		index = !index;
+		update7SEG(index++);
+		index = (index==4)?0:index;
+		counter = 50;
 	}
 }
 
