@@ -92,6 +92,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(& htim2);
   setAllTimer(100);
+  HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin|SEG4_Pin|SEG5_Pin|SEG6_Pin, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,6 +102,7 @@ int main(void)
     /* USER CODE END WHILE */
 	  exercise4();
 	  exercise5();
+	  exercise9();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

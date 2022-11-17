@@ -6,6 +6,7 @@
  */
 
 #include"global.h"
+
 int led_buffer[4] = {1, 2, 3, 0};
 
 void display7SEG(int seg_counter)
@@ -45,7 +46,7 @@ void display7SEG(int seg_counter)
 	}
 }
 
-void update7SEG ( int index ) {
+void update7SEG (int index) {
 switch ( index ) {
 	case 0:
 	// Display the first 7 SEG with led_buffer [0]
@@ -61,7 +62,7 @@ switch ( index ) {
 	break ;
 	case 2:
 	// Display the third 7 SEG with led_buffer [2]
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN2_Pin, 0);
+		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, 0);
 		HAL_GPIO_WritePin(GPIOA, EN0_Pin|EN1_Pin|EN3_Pin, 1);
 		display7SEG(led_buffer[2]);
 	break ;

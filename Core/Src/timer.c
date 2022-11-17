@@ -10,7 +10,7 @@
 
 int timer_counter[TIMER_COUNT] = {0};
 int timer_flag[TIMER_COUNT] = {0};
-int timer_delay[TIMER_COUNT] = {100, 10, 10};
+int timer_delay[TIMER_COUNT] = {50, 25, 25, 25};
 int index_led = 0;
 
 void setAllTimer(int duration)
@@ -95,3 +95,32 @@ void exercise5()
 }
 
 
+int MAX_LED_MATRIX = 8;
+int index_led_matrix = 0;
+uint8_t matrix_buffer[8] = {0x01, 0x06, 0x38, 0xC8, 0xC8, 0x38, 0x06, 0x01};
+uint16_t row_pin[8] = {ROW0_Pin,ROW1_Pin,ROW2_Pin,ROW3_Pin,ROW4_Pin,ROW5_Pin,ROW6_Pin,ROW7_Pin};
+uint16_t col_pin[8] = {ENM0_Pin,ENM1_Pin,ENM2_Pin,ENM3_Pin,ENM4_Pin,ENM5_Pin,ENM6_Pin,ENM7_Pin};
+uint8_t charA[8] = {0x01, 0x06, 0x38, 0xC8, 0xC8, 0x38, 0x06, 0x01};
+
+void updateLEDMatrix(int index) {
+	HAL_GPIO_WritePin(GPIOB, ROW0_Pin|ROW1_Pin|ROW2_Pin|ROW3_Pin|ROW4_Pin|ROW5_Pin|ROW6_Pin|ROW7_Pin, 1);
+	HAL_GPIO_WritePin(GPIOA, ENM0_Pin|ENM1_Pin|ENM2_Pin|ENM3_Pin|ENM4_Pin|ENM5_Pin|ENM6_Pin|ENM7_Pin, 1);
+
+	for(int i = 0; i < 8; i++) {
+		if(matrix_buffer[index] & (0x80 >> i)) {
+			HAL_GPIO_WritePin(GPIOB, row_pin[i], 0);
+		}
+	}
+
+	HAL_GPIO_WritePin(GPIOA, col_pin[index], 0);
+}
+
+void exercise9()
+{
+	if(timer_flag[3] == 1)
+	{
+		if(index_led_matrix >=8){index_led_matrix=0;}
+		updateLEDMatrix(index_led_matrix++);
+		setTimer(timer_delay[3], 3);
+	}
+}

@@ -8,7 +8,7 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 #include "main.h"
-#define TIMER_COUNT 3
+#define TIMER_COUNT 4
 
 void display7SEG(int);
 void update7SEG(int);

@@ -22,5 +22,5 @@ void exercise4();
 
 void updateClockBuffer();
 void exercise5();
-
+void exercise9();
 #endif /* INC_TIMER_H_ */
