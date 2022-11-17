@@ -39,6 +39,7 @@ void timerRun()
 }
 
 int counter = 50;
+int led_counter = 100;
 int index = 0;
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
@@ -47,6 +48,11 @@ void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 		update7SEG(index++);
 		index = (index==4)?0:index;
 		counter = 50;
+	}
+	if(led_counter > 0){led_counter--;}
+	else{
+		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+		led_counter = 100;
 	}
 }
 

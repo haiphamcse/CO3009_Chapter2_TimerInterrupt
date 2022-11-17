@@ -1,9 +1,9 @@
 timer.c:16:6:setAllTimer	24	static
 timer.c:21:6:setTimer	16	static
 timer.c:27:6:timerRun	16	static
-timer.c:43:6:HAL_TIM_PeriodElapsedCallback	16	static
-timer.c:53:6:exercise4	8	static
-timer.c:70:6:updateClockBuffer	4	static
-timer.c:79:6:exercise5	8	static
-timer.c:112:6:updateLEDMatrix	24	static
-timer.c:125:6:exercise9	8	static
+timer.c:44:6:HAL_TIM_PeriodElapsedCallback	16	static
+timer.c:59:6:exercise4	8	static
+timer.c:76:6:updateClockBuffer	4	static
+timer.c:85:6:exercise5	8	static
+timer.c:118:6:updateLEDMatrix	24	static
+timer.c:131:6:exercise9	8	static
