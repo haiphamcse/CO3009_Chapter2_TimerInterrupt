@@ -38,7 +38,7 @@ void timerRun()
 	}
 }
 
-int counter = 50;
+int counter = 25;
 int led_counter = 100;
 int index = 0;
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
