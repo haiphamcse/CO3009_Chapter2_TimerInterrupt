@@ -38,9 +38,15 @@ void timerRun()
 	}
 }
 
+int counter = 50;
+int index = 0;
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
-	timerRun();
+	if(counter > 0){counter--;}
+	else{
+		update7SEG(index);
+		index = !index;
+	}
 }
 
 void exercise4()
